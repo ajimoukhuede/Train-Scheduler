@@ -1,21 +1,19 @@
 $(document).ready(function() {
 
 	// 1. Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBvMGrRXiiCkkbRC6kh0QoYy02-isijLBE",
-    authDomain: "train-scheduler-3668c.firebaseapp.com",
-    databaseURL: "https://train-scheduler-3668c.firebaseio.com",
-    projectId: "train-scheduler-3668c",
-    storageBucket: "train-scheduler-3668c.appspot.com",
-  };
   
+
+	var config = {
+    apiKey: "AIzaSyD1dafqRyYL8pb7N_8cWPXq8qVkBAud46o",
+    authDomain: "trainscheduler-4b34a.firebaseapp.com",
+    databaseURL: "https://trainscheduler-4b34a.firebaseio.com",
+    projectId: "trainscheduler-4b34a",
+    storageBucket: "trainscheduler-4b34a.appspot.com",
+    messagingSenderId: "717847342257"
+  };
   firebase.initializeApp(config);
 
   var database = firebase.database();
-
- 
-
-  // First Time (pushed back 1 year to make sure it comes before current time)
    
   // 2. Button for adding Trains
   $("#add-train-btn").on("click", function(event) {
@@ -91,8 +89,9 @@ console.log(newTrain)
 	    console.log("ARRIVAL TIME: " + moment(nextTrain).format("HH:mm"));
 
 
-	  // Add each train's data into the table
-	  $("#train-table > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDest + "</td><td>" + trainFreq + 
+		// Add each train's data into the table
+		console.log("WE MADE IT TO THE APPEND!!!", $("#trainTableBody"));
+	  $("#trainTableBody").append("<tr><td>" + trainName + "</td><td>" + trainDest + "</td><td>" + trainFreq + 
 	   "</td><td>" + moment(nextTrain).format("HH:mm") + "</td><td>" + tMinutesTillTrain + "</td></tr>");
 	});
 
